@@ -14,6 +14,9 @@
 		E234D6A91B42A20E0045DDCA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E234D6A81B42A20E0045DDCA /* Images.xcassets */; };
 		E234D6AC1B42A20E0045DDCA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E234D6AA1B42A20E0045DDCA /* LaunchScreen.xib */; };
 		E234D6B81B42A20E0045DDCA /* Favorite_RecipeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E234D6B71B42A20E0045DDCA /* Favorite_RecipeTests.m */; };
+		E234D6C41B42A2E70045DDCA /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = E234D6C31B42A2E70045DDCA /* Recipe.m */; };
+		E234D6C71B42A4630045DDCA /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = E234D6C61B42A4630045DDCA /* Ingredient.m */; };
+		E234D6CA1B42A5730045DDCA /* Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = E234D6C91B42A5730045DDCA /* Direction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		E234D6B11B42A20E0045DDCA /* Favorite RecipeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Favorite RecipeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E234D6B61B42A20E0045DDCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E234D6B71B42A20E0045DDCA /* Favorite_RecipeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Favorite_RecipeTests.m; sourceTree = "<group>"; };
+		E234D6C21B42A2E70045DDCA /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		E234D6C31B42A2E70045DDCA /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
+		E234D6C51B42A4630045DDCA /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		E234D6C61B42A4630045DDCA /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
+		E234D6C81B42A5730045DDCA /* Direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Direction.h; sourceTree = "<group>"; };
+		E234D6C91B42A5730045DDCA /* Direction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Direction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +90,7 @@
 		E234D69A1B42A20E0045DDCA /* Favorite Recipe */ = {
 			isa = PBXGroup;
 			children = (
+				E234D6C11B42A2D10045DDCA /* Model */,
 				E234D69F1B42A20E0045DDCA /* AppDelegate.h */,
 				E234D6A01B42A20E0045DDCA /* AppDelegate.m */,
 				E234D6A21B42A20E0045DDCA /* ViewController.h */,
@@ -117,6 +127,19 @@
 				E234D6B61B42A20E0045DDCA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E234D6C11B42A2D10045DDCA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E234D6C21B42A2E70045DDCA /* Recipe.h */,
+				E234D6C31B42A2E70045DDCA /* Recipe.m */,
+				E234D6C51B42A4630045DDCA /* Ingredient.h */,
+				E234D6C61B42A4630045DDCA /* Ingredient.m */,
+				E234D6C81B42A5730045DDCA /* Direction.h */,
+				E234D6C91B42A5730045DDCA /* Direction.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +245,9 @@
 				E234D6A41B42A20E0045DDCA /* ViewController.m in Sources */,
 				E234D6A11B42A20E0045DDCA /* AppDelegate.m in Sources */,
 				E234D69E1B42A20E0045DDCA /* main.m in Sources */,
+				E234D6CA1B42A5730045DDCA /* Direction.m in Sources */,
+				E234D6C71B42A4630045DDCA /* Ingredient.m in Sources */,
+				E234D6C41B42A2E70045DDCA /* Recipe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
