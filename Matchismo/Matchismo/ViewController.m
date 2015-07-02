@@ -30,31 +30,33 @@
     self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d",self.flipsCount];
 }
 
+
 - (Deck *)createDeck {
     return [[PlayingCardDeck alloc] init];
+}
+
+- (Deck *)dec {
+    if (!_deck) _deck = [self createDeck];
+    return _deck;
 }
 
 
 - (IBAction)cardButtonTouched:(UIButton *)sender {
     
-    if (!_deck) _deck = [self createDeck];
-    
-    if (self.flipsCount < 52) {
-    
-        if ([sender.currentTitle length] > 0) {
-            [sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
-            [sender setTitle:@"" forState:UIControlStateNormal];
-        } else {
-            Card *card = [_deck drawRandomCard];
-            
+    if ([sender.currentTitle length] > 0) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+        [sender setTitle:@"" forState:UIControlStateNormal];
+    } else {
+        Card *card = [self.deck drawRandomCard];
+        
+        if (card) {
             [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"] forState:UIControlStateNormal];
             [sender setTitle:card.contents forState:UIControlStateNormal];
-            
-            self.flipsCount++;
         }
-    } else {
-        self.flipsLabel.text = @"No more cards!";
+        
+        self.flipsCount++;
     }
+    
 }
 
 @end
