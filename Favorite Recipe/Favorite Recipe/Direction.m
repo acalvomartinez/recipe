@@ -10,11 +10,13 @@
 
 @implementation Direction
 
-+(instancetype) directionWithText:(NSString *)text {
++ (instancetype)directionWithText:(NSString *)text
+{
     return [[self alloc] initWithText:text];
 }
 
--(id) initWithText:(NSString *)text {
+- (id)initWithText:(NSString *)text
+{
     if (self = [super init]) {
         _text = text;
     }
@@ -24,7 +26,7 @@
 
 -(NSString *)description {
     
-    return [NSString stringWithFormat:@"%@", _text];
+    return [NSString stringWithFormat:@"%@", self.text];
 }
 
 @end

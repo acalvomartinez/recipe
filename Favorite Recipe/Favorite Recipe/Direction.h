@@ -12,8 +12,8 @@
 
 @property (nonatomic, strong) NSString *text;
 
-+(instancetype) directionWithText:(NSString *)text;
++ (instancetype)directionWithText:(NSString *)text;
 
--(id) initWithText:(NSString *)text;
+- (instancetype)initWithText:(NSString *)text;
 
 @end

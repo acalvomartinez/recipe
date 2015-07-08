@@ -91,8 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				E234D6C11B42A2D10045DDCA /* Model */,
-				E234D69F1B42A20E0045DDCA /* AppDelegate.h */,
-				E234D6A01B42A20E0045DDCA /* AppDelegate.m */,
 				E234D6A21B42A20E0045DDCA /* ViewController.h */,
 				E234D6A31B42A20E0045DDCA /* ViewController.m */,
 				E234D6A51B42A20E0045DDCA /* Main.storyboard */,
@@ -106,6 +104,8 @@
 		E234D69B1B42A20E0045DDCA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E234D69F1B42A20E0045DDCA /* AppDelegate.h */,
+				E234D6A01B42A20E0045DDCA /* AppDelegate.m */,
 				E234D69C1B42A20E0045DDCA /* Info.plist */,
 				E234D69D1B42A20E0045DDCA /* main.m */,
 			);
@@ -442,6 +442,7 @@
 				E234D6BD1B42A20E0045DDCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E234D6BE1B42A20E0045DDCA /* Build configuration list for PBXNativeTarget "Favorite RecipeTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +451,7 @@
 				E234D6C01B42A20E0045DDCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

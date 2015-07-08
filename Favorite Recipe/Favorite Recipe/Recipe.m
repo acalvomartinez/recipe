@@ -13,29 +13,33 @@
 @implementation Recipe
 
 
-+(instancetype) recipeWithName:(NSString *)name
++ (instancetype)recipeWithName:(NSString *)name
+                     imageName:(NSString *)imageName
                         resume:(NSString *)resume
                     difficulty:(RecipeDifficulty)difficulty
                    ingredients:(NSArray *)ingredients
                     directions:(NSArray *)directions {
     
     return [[self alloc] initWithName:name
+                            imageName:imageName
                                resume:resume
                            difficulty:difficulty
                           ingredients:ingredients
                            directions:directions];
 }
 
--(id) initWithName:(NSString *)name
-            resume:(NSString *)resume
-        difficulty:(RecipeDifficulty)difficulty
-       ingredients:(NSArray *)ingredients
-        directions:(NSArray *)directions {
+- (instancetype)initWithName:(NSString *)name
+                   imageName:(NSString *)imageName
+                      resume:(NSString *)resume
+                  difficulty:(RecipeDifficulty)difficulty
+                 ingredients:(NSArray *)ingredients
+                  directions:(NSArray *)directions {
     
     if (self = [super init]) {
         _name = name;
+        _imageName = imageName;
         _resume = resume;
-        _difficulty = difficulty;
+        _recipeDifficulty = difficulty;
         _ingredients = ingredients;
         _directions = directions;
     }
@@ -45,12 +49,12 @@
 
 -(void)print {
     NSLog(@"Recipe");
-    NSLog(@"%@",_name);
-    NSLog(@"%@",_resume);
+    NSLog(@"%@",self.name);
+    NSLog(@"%@",self.resume);
     
     NSLog(@"Ingredients");
     
-    for (Ingredient *ingredient in _ingredients) {
+    for (Ingredient *ingredient in self.ingredients) {
         NSLog(@"%@",[ingredient description]);
     }
     
@@ -58,12 +62,31 @@
     
     NSInteger order = 1;
     
-    for (Direction *direction in _directions) {
+    for (Direction *direction in self.directions) {
         NSLog(@"%ld. %@", (long)order,[direction description]);
         order++;
     }
 }
 
-
+- (NSString *)difficulty {
+    
+    NSString *difficulty;
+    
+    switch (self.recipeDifficulty) {
+        case Easy:
+            difficulty =@"Easy";
+            break;
+        case Medium:
+            difficulty =@"Medium";
+            break;
+        case Hard:
+            difficulty =@"Hard";
+            break;
+        default:
+            break;
+    }
+    
+    return difficulty;
+}
 
 @end

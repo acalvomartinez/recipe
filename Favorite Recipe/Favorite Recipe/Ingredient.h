@@ -16,7 +16,7 @@
 +(instancetype) ingredientWithName:(NSString *)name
                             amount:(NSString *)amount;
 
--(id) initWithName:(NSString *)name
-            amount:(NSString *)amount;
+-(instancetype) initWithName:(NSString *)name
+                      amount:(NSString *)amount;
 
 @end

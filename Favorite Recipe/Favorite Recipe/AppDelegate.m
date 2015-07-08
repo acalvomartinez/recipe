@@ -8,10 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "Recipe.h"
-#import "Ingredient.h"
-#import "Direction.h"
-
 @interface AppDelegate ()
 
 @end
@@ -20,23 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    NSArray *ingredients = @[[Ingredient ingredientWithName:@"Spaghetti" amount:@"250gr"],
-                             [Ingredient ingredientWithName:@"Tomato" amount:@"300gr"],
-                             [Ingredient ingredientWithName:@"Meatballs" amount:@"300gr"]];
-    
-    NSArray *directions = @[[Direction directionWithText:@"Boil the spaghetti"],
-                            [Direction directionWithText:@"Add Tomato"],
-                            [Direction directionWithText:@"Fry the meatballs"],
-                            [Direction directionWithText:@"Mix all the ingredients"]];
-    
-    Recipe *recipe = [Recipe recipeWithName:@"Spaghetti with meatballs"
-                                     resume:@"A Mom's recipe"
-                                 difficulty:Hard
-                                ingredients:ingredients
-                                 directions:directions];
-    
-    [recipe print];
+   
     
     return YES;
 }

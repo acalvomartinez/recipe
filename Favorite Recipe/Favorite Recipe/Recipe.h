@@ -17,23 +17,28 @@ typedef NS_ENUM(NSInteger, RecipeDifficulty) {
 @interface Recipe : NSObject
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *imageName;
 @property (nonatomic, strong) NSString *resume;
-@property RecipeDifficulty difficulty;
+@property RecipeDifficulty recipeDifficulty;
 @property (nonatomic, strong) NSArray *ingredients;
 @property (nonatomic, strong) NSArray *directions;
 
-+(instancetype) recipeWithName:(NSString *)name
++ (instancetype)recipeWithName:(NSString *)name
+                     imageName:(NSString *)imageName
                         resume:(NSString *)resume
                     difficulty:(RecipeDifficulty)difficulty
                    ingredients:(NSArray *)ingredients
                     directions:(NSArray *)directions;
 
--(id) initWithName:(NSString *)name
-            resume:(NSString *)resume
-        difficulty:(RecipeDifficulty)difficulty
-       ingredients:(NSArray *)ingredients
-        directions:(NSArray *)directions;
+- (instancetype)initWithName:(NSString *)name
+                   imageName:(NSString *)imageName
+                      resume:(NSString *)resume
+                  difficulty:(RecipeDifficulty)difficulty
+                 ingredients:(NSArray *)ingredients
+                  directions:(NSArray *)directions;
 
 -(void)print;
+
+- (NSString*)difficulty;
 
 @end

@@ -10,15 +10,15 @@
 
 @implementation Ingredient
 
-+(instancetype) ingredientWithName:(NSString *)name
++ (instancetype)ingredientWithName:(NSString *)name
                             amount:(NSString *)amount {
     
     return [[self alloc] initWithName:name
                                amount:amount];
 }
 
--(id) initWithName:(NSString *)name
-            amount:(NSString *)amount {
+- (instancetype)initWithName:(NSString *)name
+                      amount:(NSString *)amount {
     
     if (self = [super init]) {
         _name = name;
@@ -29,8 +29,7 @@
 }
 
 -(NSString *)description {
-    
-    return [NSString stringWithFormat:@"%@ %@", _amount, _name];
+    return [NSString stringWithFormat:@"%@ %@", self.amount, self.name];
 }
 
 @end
