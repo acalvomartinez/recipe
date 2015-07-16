@@ -14,8 +14,8 @@
 @interface CardMatchingGame : NSObject
 
 @property (nonatomic, readonly) NSInteger score;
-
-@property (nonatomic, strong, readonly) NSString *message;
+@property (nonatomic, readonly) NSInteger matchScore;
+@property (nonatomic, strong) NSMutableArray *chosenCards;
 
 // designated initializer
 - (instancetype)initWithCardCount:(NSUInteger)count
@@ -27,5 +27,7 @@
 
 - (void)chooseCardAtIndex:(NSUInteger)index;
 - (Card*)cardAtIndex:(NSUInteger)index;
+
+
 
 @end
