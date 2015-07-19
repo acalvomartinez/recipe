@@ -32,4 +32,23 @@
     return [NSString stringWithFormat:@"%@ %@", self.amount, self.name];
 }
 
+#pragma mark - NSCoding
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+        self.amount = [aDecoder decodeObjectForKey:@"amount"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.amount forKey:@"amount"];
+}
+
+
 @end

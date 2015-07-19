@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, RecipeDifficulty) {
     Hard = 3
 };
 
-@interface Recipe : NSObject
+@interface Recipe : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *imageName;

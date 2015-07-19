@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Ingredient : NSObject
+@interface Ingredient : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *amount;

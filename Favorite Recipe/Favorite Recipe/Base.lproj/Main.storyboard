@@ -25,21 +25,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xr1-G6-jsd">
-                                <rect key="frame" x="0.0" y="189" width="320" height="379"/>
-                            </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Difficulty" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Raw-he-6J7">
                                 <rect key="frame" x="16" y="160" width="288" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9G-KW-sOb">
+                                <rect key="frame" x="16" y="198" width="288" height="370"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="contentScrollView" destination="Xr1-G6-jsd" id="OtQ-vx-Qcw"/>
+                        <outlet property="descriptionTextView" destination="c9G-KW-sOb" id="yiI-mi-V1c"/>
                         <outlet property="difficultyLabel" destination="Raw-he-6J7" id="1Gf-MC-gQC"/>
                         <outlet property="nameLabel" destination="uLs-lv-AIE" id="czt-TI-hZy"/>
                         <outlet property="recipeImageView" destination="f2X-9Z-fJ7" id="5Gq-61-nXj"/>

@@ -89,4 +89,30 @@
     return difficulty;
 }
 
+#pragma mark - NSCoding
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+        self.imageName = [aDecoder decodeObjectForKey:@"imageName"];
+        self.resume = [aDecoder decodeObjectForKey:@"resume"];
+        self.recipeDifficulty = [aDecoder decodeIntForKey:@"recipeDifficulty"];
+        self.ingredients = [aDecoder decodeObjectForKey:@"ingredients"];
+        self.directions = [aDecoder decodeObjectForKey:@"directions"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.imageName forKey:@"imageName"];
+    [aCoder encodeObject:self.resume forKey:@"resume"];
+    [aCoder encodeInt:self.recipeDifficulty forKey:@"recipeDifficulty"];
+    [aCoder encodeObject:self.ingredients forKey:@"ingredients"];
+    [aCoder encodeObject:self.directions forKey:@"directions"];
+}
+
 @end

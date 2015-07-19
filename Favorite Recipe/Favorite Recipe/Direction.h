@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Direction : NSObject
+@interface Direction : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *text;
 

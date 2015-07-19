@@ -29,4 +29,22 @@
     return [NSString stringWithFormat:@"%@", self.text];
 }
 
+
+#pragma mark - NSCoding
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        self.text = [aDecoder decodeObjectForKey:@"text"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.text forKey:@"text"];
+}
+
+
 @end

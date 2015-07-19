@@ -17,41 +17,62 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *difficultyLabel;
 @property (nonatomic, strong) Recipe *recipe;
-@property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @end
 
 @implementation ViewController
 
 #pragma mark - lifecycle
 
+- (Recipe *)recipe {
+    if (!_recipe) _recipe = [self createRecipe];
+    return _recipe;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self createRecipe];
     [self presentRecipe];
     
 }
 
 #pragma mark - recipe utils
 
-- (void)createRecipe
+- (Recipe *)createRecipe
 {
-    NSArray *ingredients = @[[Ingredient ingredientWithName:@"Macaroni" amount:@"250gr"],
-                             [Ingredient ingredientWithName:@"Tomato" amount:@"300gr"],
-                             [Ingredient ingredientWithName:@"Chorizo" amount:@"300gr"]];
+    Recipe *recipe;
     
-    NSArray *directions = @[[Direction directionWithText:@"Boil the macaroni"],
-                            [Direction directionWithText:@"Add Tomato"],
-                            [Direction directionWithText:@"Fry the chorizo"],
-                            [Direction directionWithText:@"Mix all the ingredients"]];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    self.recipe = [Recipe recipeWithName:@"Macaroni with tomato"
-                               imageName:@"macarrones"
-                                  resume:@"A Mom's recipe"
-                              difficulty:Hard
-                             ingredients:ingredients
-                              directions:directions];
+    if ([userDefaults objectForKey:@"favoriteRecipe"]) {
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"favoriteRecipe"];
+        recipe= [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    } else {
+        NSArray *ingredients = @[[Ingredient ingredientWithName:@"Macaroni" amount:@"250gr"],
+                                 [Ingredient ingredientWithName:@"Tomato" amount:@"300gr"],
+                                 [Ingredient ingredientWithName:@"Chorizo" amount:@"300gr"]];
+        
+        NSArray *directions = @[[Direction directionWithText:@"Boil the macaroni"],
+                                [Direction directionWithText:@"Add Tomato"],
+                                [Direction directionWithText:@"Fry the chorizo"],
+                                [Direction directionWithText:@"Mix all the ingredients"]];
+        
+        recipe = [Recipe recipeWithName:@"Macaroni with tomato"
+                              imageName:@"macarrones"
+                                 resume:@"A Mom's recipe"
+                             difficulty:Hard
+                            ingredients:ingredients
+                             directions:directions];
+        
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:recipe];
+        [userDefaults setObject:data forKey:@"favoriteRecipe"];
+        [userDefaults synchronize];
+    }
+    
+    return recipe;
+    
+   
 }
 
 - (void)presentRecipe {
@@ -60,49 +81,55 @@
     self.nameLabel.text = self.recipe.name;
     self.difficultyLabel.text = [self.recipe difficulty];
     
-    float y = 10;
+    UIFont* headlineFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    UIFont* bodyFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     
-    UILabel *resumeLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, y, 288, 21)];
-    resumeLabel.text = self.recipe.resume;
+    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:self.recipe.resume attributes:@{NSFontAttributeName:bodyFont}];
     
-    [self.contentScrollView addSubview:resumeLabel];
+    NSAttributedString *newLine = [[NSAttributedString alloc] initWithString:@"\n"];
     
-    y += resumeLabel.frame.size.height + 10;
+    [description appendAttributedString:newLine];
+    [description appendAttributedString:newLine];
     
-    UILabel *ingredientsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, y, 288, 21)];
-    ingredientsTitleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-    ingredientsTitleLabel.text = @"Ingredients";
-
-    [self.contentScrollView addSubview:ingredientsTitleLabel];
+    [description appendAttributedString:[[NSAttributedString alloc] initWithString:@"Ingredients" attributes:@{ NSFontAttributeName:headlineFont }]];
     
-    y += ingredientsTitleLabel.frame.size.height + 5;
+    [description appendAttributedString:newLine];
+    [description appendAttributedString:newLine];
     
     for (Ingredient *ingredient in self.recipe.ingredients) {
-        UILabel *ingredientLabel = [[UILabel alloc] initWithFrame:CGRectMake(26, y, 288, 21)];
-        ingredientLabel.text = [ingredient description];
-        [self.contentScrollView addSubview:ingredientLabel];
-        y += ingredientLabel.frame.size.height + 5;
+        NSString *tabtext = [NSString stringWithFormat:@"\t%@", [ingredient description]];
+        
+        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:tabtext attributes:@{NSFontAttributeName:bodyFont}];
+        [text setAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:bodyFont.pointSize]}
+                      range:NSMakeRange(1, [ingredient.amount length])];
+        
+        [description appendAttributedString:text];
+        [description appendAttributedString:newLine];
     }
     
-    y += 5;
+    [description appendAttributedString:newLine];
     
-    UILabel *directionsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, y, 288, 21)];
-    directionsTitleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-    directionsTitleLabel.text = @"Directions";
+    [description appendAttributedString:[[NSAttributedString alloc] initWithString:@"Directions" attributes:@{ NSFontAttributeName:headlineFont }]];
     
-    [self.contentScrollView addSubview:directionsTitleLabel];
-    
-    y += directionsTitleLabel.frame.size.height + 5;
+    [description appendAttributedString:newLine];
+    [description appendAttributedString:newLine];
     
     for (Direction *direction in self.recipe.directions) {
-        UILabel *directionLabel = [[UILabel alloc] initWithFrame:CGRectMake(26, y, 288, 21)];
-        directionLabel.text = [direction description];
-        [self.contentScrollView addSubview:directionLabel];
-        y += directionLabel.frame.size.height + 5;
+        
+        NSString *tabtext = [NSString stringWithFormat:@"\t%@", [direction description]];
+        
+        NSAttributedString *text = [[NSAttributedString alloc] initWithString:tabtext attributes:@{NSFontAttributeName:bodyFont}];
+        [description appendAttributedString:text];
+        [description appendAttributedString:newLine];
     }
     
-    self.contentScrollView.contentSize = CGSizeMake(self.view.frame.size.width, y);
+    [self.descriptionTextView.textStorage appendAttributedString:description];
+    
 }
+
+#
+
+
 
 @end
 
