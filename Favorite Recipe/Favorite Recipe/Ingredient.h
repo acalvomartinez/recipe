@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Ingredient : NSObject <NSCoding>
+#import "NamedEntity.h"
 
-@property (nonatomic, strong) NSString *name;
+@interface Ingredient : NamedEntity <NSCoding>
+
 @property (nonatomic, strong) NSString *amount;
 
 +(instancetype) ingredientWithName:(NSString *)name

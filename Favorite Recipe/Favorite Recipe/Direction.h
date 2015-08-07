@@ -8,12 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Direction : NSObject <NSCoding>
+#import "NamedEntity.h"
 
-@property (nonatomic, strong) NSString *text;
+@interface Direction : NamedEntity
 
-+ (instancetype)directionWithText:(NSString *)text;
-
-- (instancetype)initWithText:(NSString *)text;
 
 @end

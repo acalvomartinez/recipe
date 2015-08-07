@@ -53,10 +53,10 @@
                                  [Ingredient ingredientWithName:@"Tomato" amount:@"300gr"],
                                  [Ingredient ingredientWithName:@"Chorizo" amount:@"300gr"]];
         
-        NSArray *directions = @[[Direction directionWithText:@"Boil the macaroni"],
-                                [Direction directionWithText:@"Add Tomato"],
-                                [Direction directionWithText:@"Fry the chorizo"],
-                                [Direction directionWithText:@"Mix all the ingredients"]];
+        NSArray *directions = @[[Direction entityWithName:@"Boil the macaroni"],
+                                [Direction entityWithName:@"Add Tomato"],
+                                [Direction entityWithName:@"Fry the chorizo"],
+                                [Direction entityWithName:@"Mix all the ingredients"]];
         
         recipe = [Recipe recipeWithName:@"Macaroni with tomato"
                               imageName:@"macarrones"

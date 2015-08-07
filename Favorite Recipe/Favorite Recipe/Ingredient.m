@@ -20,8 +20,7 @@
 - (instancetype)initWithName:(NSString *)name
                       amount:(NSString *)amount {
     
-    if (self = [super init]) {
-        _name = name;
+    if (self = [super initWithName:name]) {
         _amount = amount;
     }
     
@@ -36,9 +35,8 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super init];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        self.name = [aDecoder decodeObjectForKey:@"name"];
         self.amount = [aDecoder decodeObjectForKey:@"amount"];
     }
     return self;

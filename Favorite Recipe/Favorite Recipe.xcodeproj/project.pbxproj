@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		243629AE20BB608CB36823AF /* libPods-Favorite Recipe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB2207106F6532968549563 /* libPods-Favorite Recipe.a */; };
+		E206D6FC1B5E26AC00C82764 /* NamedEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E206D6FB1B5E26AC00C82764 /* NamedEntity.m */; };
 		E234D69E1B42A20E0045DDCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E234D69D1B42A20E0045DDCA /* main.m */; };
 		E234D6A11B42A20E0045DDCA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E234D6A01B42A20E0045DDCA /* AppDelegate.m */; };
 		E234D6A41B42A20E0045DDCA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E234D6A31B42A20E0045DDCA /* ViewController.m */; };
@@ -30,6 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AB2207106F6532968549563 /* libPods-Favorite Recipe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Favorite Recipe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E2A09D77ED21A7D8B22273F /* Pods-Favorite Recipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite Recipe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Favorite Recipe/Pods-Favorite Recipe.debug.xcconfig"; sourceTree = "<group>"; };
+		BD4FEB16EF135C9859841B16 /* Pods-Favorite Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite Recipe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Favorite Recipe/Pods-Favorite Recipe.release.xcconfig"; sourceTree = "<group>"; };
+		E206D6FA1B5E26AC00C82764 /* NamedEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamedEntity.h; sourceTree = "<group>"; };
+		E206D6FB1B5E26AC00C82764 /* NamedEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamedEntity.m; sourceTree = "<group>"; };
 		E234D6981B42A20E0045DDCA /* Favorite Recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Favorite Recipe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E234D69C1B42A20E0045DDCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E234D69D1B42A20E0045DDCA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				243629AE20BB608CB36823AF /* libPods-Favorite Recipe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,12 +77,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4A1CCB7B9FE3B91D62BDE35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AB2207106F6532968549563 /* libPods-Favorite Recipe.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E234D68F1B42A20E0045DDCA = {
 			isa = PBXGroup;
 			children = (
 				E234D69A1B42A20E0045DDCA /* Favorite Recipe */,
 				E234D6B41B42A20E0045DDCA /* Favorite RecipeTests */,
 				E234D6991B42A20E0045DDCA /* Products */,
+				F1CB30F0077E12CED668C3A0 /* Pods */,
+				A4A1CCB7B9FE3B91D62BDE35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,8 +156,19 @@
 				E234D6C61B42A4630045DDCA /* Ingredient.m */,
 				E234D6C81B42A5730045DDCA /* Direction.h */,
 				E234D6C91B42A5730045DDCA /* Direction.m */,
+				E206D6FA1B5E26AC00C82764 /* NamedEntity.h */,
+				E206D6FB1B5E26AC00C82764 /* NamedEntity.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		F1CB30F0077E12CED668C3A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E2A09D77ED21A7D8B22273F /* Pods-Favorite Recipe.debug.xcconfig */,
+				BD4FEB16EF135C9859841B16 /* Pods-Favorite Recipe.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E234D6BB1B42A20E0045DDCA /* Build configuration list for PBXNativeTarget "Favorite Recipe" */;
 			buildPhases = (
+				163BAF80DB21962D106387BD /* Check Pods Manifest.lock */,
 				E234D6941B42A20E0045DDCA /* Sources */,
 				E234D6951B42A20E0045DDCA /* Frameworks */,
 				E234D6961B42A20E0045DDCA /* Resources */,
+				89920F5448B92C447FE91A46 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,6 +268,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		163BAF80DB21962D106387BD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		89920F5448B92C447FE91A46 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Favorite Recipe/Pods-Favorite Recipe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E234D6941B42A20E0045DDCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -246,6 +310,7 @@
 				E234D6A11B42A20E0045DDCA /* AppDelegate.m in Sources */,
 				E234D69E1B42A20E0045DDCA /* main.m in Sources */,
 				E234D6CA1B42A5730045DDCA /* Direction.m in Sources */,
+				E206D6FC1B5E26AC00C82764 /* NamedEntity.m in Sources */,
 				E234D6C71B42A4630045DDCA /* Ingredient.m in Sources */,
 				E234D6C41B42A2E70045DDCA /* Recipe.m in Sources */,
 			);
@@ -371,6 +436,7 @@
 		};
 		E234D6BC1B42A20E0045DDCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E2A09D77ED21A7D8B22273F /* Pods-Favorite Recipe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Favorite Recipe/Info.plist";
@@ -381,6 +447,7 @@
 		};
 		E234D6BD1B42A20E0045DDCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD4FEB16EF135C9859841B16 /* Pods-Favorite Recipe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Favorite Recipe/Info.plist";

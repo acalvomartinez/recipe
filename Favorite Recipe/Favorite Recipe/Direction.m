@@ -10,41 +10,5 @@
 
 @implementation Direction
 
-+ (instancetype)directionWithText:(NSString *)text
-{
-    return [[self alloc] initWithText:text];
-}
-
-- (id)initWithText:(NSString *)text
-{
-    if (self = [super init]) {
-        _text = text;
-    }
-    
-    return self;
-}
-
--(NSString *)description {
-    
-    return [NSString stringWithFormat:@"%@", self.text];
-}
-
-
-#pragma mark - NSCoding
-
--(id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-    if (self) {
-        self.text = [aDecoder decodeObjectForKey:@"text"];
-    }
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.text forKey:@"text"];
-}
-
 
 @end
